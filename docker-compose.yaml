@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  api:
+    image: hexpm/elixir:1.14.5-erlang-26.1.1-debian-bookworm-20230612
+    tty: true
+    working_dir: /srv
+    ports:
+      - "9991:4000"
+    volumes:
+      - ./backend:/srv
+
+  mongo:
+    image: mongo:6.0
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - 9992:27017
+
+  minio:
+    image: minio/minio:latest
+    ports:
+      - "9993:9000"
+      - "9994:9001"
+    environment:
+      - MINIO_ACCESS_KEY=miniodev
+      - MINIO_SECRET_KEY=miniodev
+    command: minio server /data --address ":9000" --console-address ":9001"

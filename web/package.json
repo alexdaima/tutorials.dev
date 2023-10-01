@@ -1,0 +1,37 @@
+{
+  "name": "tutorials",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.8.4",
+    "@apollo/experimental-nextjs-app-support": "^0.4.3",
+    "@apollo/server": "^4.9.3",
+    "@types/diff": "^5.0.5",
+    "@types/uuid": "^9.0.4",
+    "better-react-mathjax": "^2.0.2",
+    "diff": "^5.1.0",
+    "markdown-it": "^13.0.2",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "shiki": "^0.14.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}

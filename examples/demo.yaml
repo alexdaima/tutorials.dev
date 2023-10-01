@@ -1,0 +1,176 @@
+title: "Demo"
+description: "Here we go through some core abilities"
+blocks:
+  - type: "code"
+    language: "python"
+    title: "Plot a graph from some lists"
+    description: >
+      We will manually generate some fake data based on how many hours students study (hours of homework)
+      and their exam scores, as we will be wanting to try and find the link!
+    steps:
+      - markdown: >
+          Import `numpy` and `matplotlib`, which are used for linear algebra and graph plotting respectivly
+        code: |
+          import numpy as np
+          import matplotlib.pyplot as plt
+
+      - markdown: >
+          Override the theme that `matplotlib` uses, and use one that is similar to the graphs produces in R.
+        code: |
+          import numpy as np
+          import matplotlib.pyplot as plt
+
+          plt.style.use("ggplot")
+
+      - markdown: >
+          Create two arrays of the same length, `hours_studied` and `exam_scores`.
+        code: |
+          import numpy as np
+          import matplotlib.pyplot as plt
+
+          plt.style.use("ggplot")
+
+          hours_studied = [1,  1,  1,  1.5, 1.5, 2,  2,  2.5, 2.5, 2.5, 3,  3,  3,  3,  3.5, 3.5, 3.5, 4,  4,  4]
+          exam_scores =   [50, 45, 52, 56,  58,  59, 64, 63,  69,  57,  68, 78, 74, 72, 72,  75,  69,  84, 82, 80]
+
+      - markdown: >
+          Create a scatter graph from the two arrays we just created.
+          We give it a `label` property too so that when we create a legend it automatically gets assigned a name.
+        code: |
+          import numpy as np
+          import matplotlib.pyplot as plt
+
+          plt.style.use("ggplot")
+
+          hours_studied = [1,  1,  1,  1.5, 1.5, 2,  2,  2.5, 2.5, 2.5, 3,  3,  3,  3,  3.5, 3.5, 3.5, 4,  4,  4]
+          exam_scores =   [50, 45, 52, 56,  58,  59, 64, 63,  69,  57,  68, 78, 74, 72, 72,  75,  69,  84, 82, 80]
+
+          plt.scatter(hours_studied, exam_scores, label="data", marker="x", color="blue")
+
+      - markdown: >
+          We create a legend, and this legend will automatically find a suitable place in the
+          graph that tries to not overlay existing data points..
+        code: |
+          import numpy as np
+          import matplotlib.pyplot as plt
+
+          plt.style.use("ggplot")
+
+          hours_studied = [1,  1,  1,  1.5, 1.5, 2,  2,  2.5, 2.5, 2.5, 3,  3,  3,  3,  3.5, 3.5, 3.5, 4,  4,  4]
+          exam_scores =   [50, 45, 52, 56,  58,  59, 64, 63,  69,  57,  68, 78, 74, 72, 72,  75,  69,  84, 82, 80]
+
+          plt.scatter(hours_studied, exam_scores, label="data", marker="x", color="blue")
+          plt.legend(loc="best")
+
+      - markdown: >
+          We specify our $x$ label and $y$ labels for better readability.
+        code: |
+          import numpy as np
+          import matplotlib.pyplot as plt
+
+          plt.style.use("ggplot")
+
+          hours_studied = [1,  1,  1,  1.5, 1.5, 2,  2,  2.5, 2.5, 2.5, 3,  3,  3,  3,  3.5, 3.5, 3.5, 4,  4,  4]
+          exam_scores =   [50, 45, 52, 56,  58,  59, 64, 63,  69,  57,  68, 78, 74, 72, 72,  75,  69,  84, 82, 80]
+
+          plt.scatter(hours_studied, exam_scores, label="data", marker="x", color="blue")
+          plt.legend(loc="best")
+          plt.xlabel("Hours Of Homework")
+          plt.ylabel("Exam Score")
+
+      - markdown: >
+          Finally with `matplotlib`, we need to render the graph
+        code: |
+          import numpy as np
+          import matplotlib.pyplot as plt
+
+          plt.style.use("ggplot")
+
+          hours_studied = [1,  1,  1,  1.5, 1.5, 2,  2,  2.5, 2.5, 2.5, 3,  3,  3,  3,  3.5, 3.5, 3.5, 4,  4,  4]
+          exam_scores =   [50, 45, 52, 56,  58,  59, 64, 63,  69,  57,  68, 78, 74, 72, 72,  75,  69,  84, 82, 80]
+
+          plt.scatter(hours_studied, exam_scores, label="data", marker="x", color="blue")
+          plt.legend(loc="best")
+          plt.xlabel("Hours Of Homework")
+          plt.ylabel("Exam Score")
+          plt.show()
+  - type: "terminal"
+    prefix: root@ea40cf4ad8ea:/srv/src#
+    commands:
+      - command: pwd
+        output: /srv/src
+      - command: apt-get install vim -y;
+        output: |
+          Reading package lists... Done
+          Building dependency tree... Done
+          Reading state information... Done
+          E: Unable to locate package vim
+      - command: apt-get update -y;
+        output: |
+          Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+          Get:2 http://deb.debian.org/debian bookworm-updates InRelease [52.1 kB]
+          Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+          Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8906 kB]
+          Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6432 B]
+          Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [63.2 kB]
+          Fetched 9227 kB in 2s (3769 kB/s)                          
+          Reading package lists... Done
+      - command: apt-get install vim -y;
+        output: |
+          Reading package lists... Done
+          Building dependency tree... Done
+          Reading state information... Done
+          The following additional packages will be installed:
+            libgpm2 libsodium23 vim-common vim-runtime xxd
+          Suggested packages:
+            gpm ctags vim-doc vim-scripts
+          The following NEW packages will be installed:
+            libgpm2 libsodium23 vim vim-common vim-runtime xxd
+          0 upgraded, 6 newly installed, 0 to remove and 0 not upgraded.
+          Need to get 8976 kB of archives.
+          After this operation, 41.9 MB of additional disk space will be used.
+          Get:1 http://deb.debian.org/debian bookworm/main amd64 vim-common all 2:9.0.1378-2 [124 kB]
+          Get:2 http://deb.debian.org/debian bookworm/main amd64 libgpm2 amd64 1.20.7-10+b1 [14.2 kB]
+          Get:3 http://deb.debian.org/debian bookworm/main amd64 libsodium23 amd64 1.0.18-1 [161 kB]
+          Get:4 http://deb.debian.org/debian bookworm/main amd64 vim-runtime all 2:9.0.1378-2 [7025 kB]
+          Get:5 http://deb.debian.org/debian bookworm/main amd64 vim amd64 2:9.0.1378-2 [1567 kB]                                                   
+          Get:6 http://deb.debian.org/debian bookworm/main amd64 xxd amd64 2:9.0.1378-2 [83.7 kB]                                                   
+          Fetched 8976 kB in 8s (1057 kB/s)                                                                                                         
+          debconf: delaying package configuration, since apt-utils is not installed
+          Selecting previously unselected package vim-common.
+          (Reading database ... 23259 files and directories currently installed.)
+          Preparing to unpack .../0-vim-common_2%3a9.0.1378-2_all.deb ...
+          Unpacking vim-common (2:9.0.1378-2) ...
+          Selecting previously unselected package libgpm2:amd64.
+          Preparing to unpack .../1-libgpm2_1.20.7-10+b1_amd64.deb ...
+          Unpacking libgpm2:amd64 (1.20.7-10+b1) ...
+          Selecting previously unselected package libsodium23:amd64.
+          Preparing to unpack .../2-libsodium23_1.0.18-1_amd64.deb ...
+          Unpacking libsodium23:amd64 (1.0.18-1) ...
+          Selecting previously unselected package vim-runtime.
+          Preparing to unpack .../3-vim-runtime_2%3a9.0.1378-2_all.deb ...
+          Adding 'diversion of /usr/share/vim/vim90/doc/help.txt to /usr/share/vim/vim90/doc/help.txt.vim-tiny by vim-runtime'
+          Adding 'diversion of /usr/share/vim/vim90/doc/tags to /usr/share/vim/vim90/doc/tags.vim-tiny by vim-runtime'
+          Unpacking vim-runtime (2:9.0.1378-2) ...
+          Selecting previously unselected package vim.
+          Preparing to unpack .../4-vim_2%3a9.0.1378-2_amd64.deb ...
+          Unpacking vim (2:9.0.1378-2) ...
+          Selecting previously unselected package xxd.
+          Preparing to unpack .../5-xxd_2%3a9.0.1378-2_amd64.deb ...
+          Unpacking xxd (2:9.0.1378-2) ...
+          Setting up libsodium23:amd64 (1.0.18-1) ...
+          Setting up libgpm2:amd64 (1.20.7-10+b1) ...
+          Setting up xxd (2:9.0.1378-2) ...
+          Setting up vim-common (2:9.0.1378-2) ...
+          Setting up vim-runtime (2:9.0.1378-2) ...
+          Setting up vim (2:9.0.1378-2) ...
+          update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
+          update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+          update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+          update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+          update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+          update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+          update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+          update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+          Processing triggers for libc-bin (2.36-9+deb12u1) ...
+          Processing triggers for hicolor-icon-theme (0.17-2) ...
